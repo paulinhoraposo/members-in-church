@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Administrador</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <div class="container mx-auto p-6">
+
+    <h1 class="text-3xl font-bold text-gray-800 mb-6">Cadastro de Administrador</h1>
+
+    <!-- Formulário de cadastro -->
+    <div class="bg-white shadow-md rounded p-6">
+      <form action="/cadastro-admin" method="POST">
+        <div class="grid grid-cols-1 gap-4">
+          <input type="text" name="nome" placeholder="Nome Completo" class="border px-4 py-2 rounded" required />
+          <input type="email" name="email" placeholder="Email" class="border px-4 py-2 rounded" required />
+          <input type="text" name="username" placeholder="Nome de Usuário" class="border px-4 py-2 rounded" required />
+          <input type="password" name="password" placeholder="Senha" class="border px-4 py-2 rounded" required />
+          <input type="password" name="confirm_password" placeholder="Confirmar Senha" class="border px-4 py-2 rounded" required />
+          <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white py-2 rounded">
+            Cadastrar Administrador
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</body>
+</html>

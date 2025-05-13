@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Membros da Igreja</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+  <div class="max-w-2xl mx-auto bg-white p-6 rounded shadow">
+  
+    <h1 class="text-2xl font-bold mb-6">Cadastro de Membro</h1>
+
+    <form action="/membros" method="POST" enctype="multipart/form-data" class="space-y-4">
+      <div>
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" required class="border p-2 w-full">
+      </div>
+
+      <div>
+        <label for="telefone">Telefone:</label>
+        <input type="text" name="telefone" id="telefone" required class="border p-2 w-full">
+      </div>
+
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required class="border p-2 w-full">
+      </div>
+
+      <div>
+        <label for="data_nascimento">Nascimento:</label>
+        <input type="date" name="data_nascimento" id="data_nascimento" required class="border p-2 w-full">
+      </div>
+
+      <div>
+        <label for="foto">Foto:</label>
+        <input type="file" name="foto" id="foto" accept="image/*" class="border p-2 w-full">
+      </div>
+
+      <a href="/dashboard" class="inline-block mb-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded shadow">
+  ← Voltar ao Dashboard
+</a>
+      <button type="submit" class="bg-red-500 text-white px-4 py-2 font-semibold">Cadastrar Membro</button>
+    
+    </form>
+  </div>
+
+  
+</body>
+</html>
+

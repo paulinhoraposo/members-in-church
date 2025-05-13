@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+
+<div class="min-h-screen bg-gray-100 py-10 px-4">
+  <div class="max-w-7xl mx-auto">
+    
+    <!-- Título e botão de voltar -->
+    <div class="mb-10 flex justify-between items-center">
+      <h1 class="text-3xl font-bold text-blue-600">🎉 Aniversariantes</h1>
+      <a href="/dashboard" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">⬅ Voltar ao Dashboard</a>
+    </div>
+
+    <!-- Aniversariantes de Hoje -->
+    <% if (aniversariantesHoje.length > 0) { %>
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">🎈 Aniversariantes de Hoje</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-10">
+        <% aniversariantesHoje.forEach(membro => { %>
+          <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow hover:scale-105 transform">
+            <img src="<%= membro.foto || '/img/default-profile.jpg' %>" alt="<%= membro.nome %>"
+                 class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-blue-400 mb-4">
+            <h3 class="text-lg font-semibold text-center text-gray-800"><%= membro.nome %></h3>
+            <p class="text-sm text-center text-gray-500">🎂 <%= membro.data_nascimento %></p>
+            <div class="text-center mt-4">
+              <a href="/enviar-parabens/<%= membro.id %>" class="inline-block bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition">
+                Enviar Parabéns
+              </a>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    <% } %>
+
+    <!-- Aniversariantes do Mês -->
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4">📅 Aniversariantes do Mês</h2>
+    <% if (aniversariantesMes.length > 0) { %>
+      <div class="space-y-4">
+        <% aniversariantesMes.forEach(membro => { %>
+          <div class="bg-white rounded-lg shadow flex items-center p-4 hover:shadow-md transition">
+            <img src="<%= membro.foto || '/img/default-profile.jpg' %>" alt="<%= membro.nome %>"
+                 class="w-14 h-14 rounded-full object-cover border-2 border-blue-400 mr-4">
+            <div>
+              <h3 class="text-base font-semibold text-gray-800"><%= membro.nome %></h3>
+              <p class="text-sm text-gray-500">🎂 <%= membro.data_nascimento %></p>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <p class="text-center text-gray-500">Nenhum aniversariante este mês.</p>
+    <% } %>
+
+  </div>
+</div>
+
+<%- include('partials/footer') %>

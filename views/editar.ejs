@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Editar Membro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+  <div class="max-w-xl mx-auto bg-white shadow-md rounded p-6">
+    <h1 class="text-2xl font-bold mb-4">Editar Membro</h1>
+
+    <form action="/editar/<%= membro.id %>" method="POST" enctype="multipart/form-data" class="space-y-4">
+
+      <div>
+        <label for="nome" class="block font-medium">Nome:</label>
+        <input type="text" name="nome" id="nome" value="<%= membro.nome %>" required class="border p-2 w-full rounded">
+      </div>
+
+      <div>
+        <label for="telefone" class="block font-medium">Telefone:</label>
+        <input type="text" name="telefone" id="telefone" value="<%= membro.telefone %>" required class="border p-2 w-full rounded">
+      </div>
+
+      <div>
+        <label for="email" class="block font-medium">Email:</label>
+        <input type="email" name="email" id="email" value="<%= membro.email %>" required class="border p-2 w-full rounded">
+      </div>
+
+      <div>
+        <label for="data_nascimento" class="block font-medium">Nascimento:</label>
+        <input type="date" name="data_nascimento" id="data_nascimento" value="<%= membro.data_nascimento %>" required class="border p-2 w-full rounded">
+      </div>
+
+      <div>
+        <label for="funcao" class="block font-medium">Função:</label>
+        <input type="text" name="funcao" id="funcao" value="<%= membro.funcao %>" class="border p-2 w-full rounded">
+      </div>
+
+      <div>
+        <label for="endereco" class="block font-medium">Endereço:</label>
+        <input type="text" name="endereco" id="endereco" value="<%= membro.endereco %>" class="border p-2 w-full rounded">
+      </div>
+
+      <div>
+        <label for="foto" class="block font-medium">Foto:</label>
+        <input type="file" name="foto" id="foto" accept="image/*" class="border p-2 w-full rounded">
+        <% if (membro.foto) { %>
+          <img src="<%= membro.foto %>" alt="Foto de <%= membro.nome %>" class="w-24 h-24 mt-2 object-cover rounded">
+        <% } %>
+      </div>
+
+      <button type="submit" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
+        Salvar Alterações
+      </button>
+    </form>
+  </div>
+</body>
+</html>
